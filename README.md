@@ -1,6 +1,6 @@
 # 0x00. AirBnB clone - The console
 
-![Hbnb](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUWMNL5ANN%2F20210211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210211T153146Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=607aa513858ddbbed90a251bc932099ed3ff95a3316c4aa0ab7d5396d8831651)
+![Hbnb](https://raw.githubusercontent.com/mauriciosierrac//AirBnB_clone/tree/master/assets/airbnb.png)
 
 
 ## Resources:books:
