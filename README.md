@@ -6,8 +6,12 @@
 ## Resources:books:
 
 Read or watch:
-* [Google](https://www.google.com/webhp?q=stack%20and%20queue)
-* [How do I use extern to share variables between source files in C?](https://stackoverflow.com/questions/1433204/how-do-i-use-extern-to-share-variables-between-source-files)
+* [cmd module](https://docs.python.org/3.4/library/cmd.html)
+* [uuid module](https://docs.python.org/3.4/library/uuid.html)
+* [datetime](https://docs.python.org/3.4/library/datetime.html)
+* [unittest module](https://docs.python.org/3.4/library/unittest.html#module-unittest)
+* [args / kwarg](https://yasoob.me/2013/08/04/args-and-kwargs-in-python-explained/)
+* [Python test cheastsheet](https://www.pythonsheets.com/notes/python-tests.html)
 
 
 
@@ -16,67 +20,81 @@ Read or watch:
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
 ### General
-* What do LIFO and FIFO mean
-* What is a stack, and when to use it
-* What is a queue, and when to use it
-* What are the common implementations of stacks and queues
-* What are the most common use cases of stacks and queues
-* What is the proper way to use global variables
+
+* How to create a Python package
+* How to create a command interpreter in Python using the cmd module
+* What is Unit testing and how to implement it in a large project
+* How to serialize and deserialize a Class
+* How to write and read a JSON file
+* How to manage datetime
+* What is an UUID
+* What is *args and how to use it
+* What is **kwargs and how to use it
+* How to handle named arguments in a function
 
 ---
 
-### [0. push, pall ](./built_ins.c)
-* implement the "push" and "pall" functions.
-The push function pushes an element to the stack.
-The pall function prints all the values on the stack, starting from the top of the stack.
-
-
-### [1. pint ](./helpers.c)
-* The function pint print the value at the top of the stack, followed by a new line.
-
-
-### [2. pop ](./built_ins.c)
-* The pop function removes the top element of the stack.
-
-
-### [3. swap ](./built_ins.c)
-* The swap function swaps the top two elements of the stack.
-
-
-### [4. add ](./calculations.c)
-* The add function adds the top two elements of the stack.
-
-
-### [5. nop ](./built_ins.c)
-* The nop function doesn't do anything.
+### [0. README, AUTHORS ](./README.md)
+### [1. Be PEP8 compilant! ](./)
+### [2. Unittest ](./)
+### [3. Base Model ](./)
+### [4. Create BaseModel from dictionary ](./)
+### [5. Store first object ](./)
+### [6. Console 0.0.1 ](./)
+### [7. Console 0.1 ](./)
+### [8. First User ](./)
+### [9. More Classes! ](./)
+### [10. Console 1.0 ](./)
 
 
 ---
 
 ## How to use it :computer:
 
-### The Monty language
+### Execution
 
-* Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.
-
-### Monty byte code files
-
-Files containing Monty byte codes usually have the .m extension. Most of the industry uses this standard but it is not required by the specification of the language. There is not more than one instruction per line. There can be any number of spaces before or after the opcode and its argument: 
-
-Example monty file 000.m
+* Your shell should work like this in interactive mode:
 
 ```
-push 0
-push 1
-push 2
-  push 3
-                   pall    
-push 4
-    push 5    
-      push    6        
-pall
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit
+$
 
 ```
+
+* But also in non-interactive mode: (like the Shell project in C)
+
+```
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+
+```
+
 
 ---
 ## Authors :sunglasses:
