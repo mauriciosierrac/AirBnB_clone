@@ -1,6 +1,6 @@
 # 0x00. AirBnB clone - The console
 
-![Hbnb](https://raw.githubusercontent.com/mauriciosierrac/AirBnB_clone/tree/master/assets/airbnb.png)
+![Hbnb](https://github.com/mauriciosierrac/AirBnB_clone/blob/master/assets/airbnb.png)
 
 
 ## Resources:books:
