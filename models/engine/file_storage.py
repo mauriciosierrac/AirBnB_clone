@@ -2,7 +2,7 @@
 '''Define FileStorage class'''
 import json
 from models.base_model import BaseModel
-
+atri = {"BaseModel": BaseModel}
 
 class FileStorage():
     '''Serialized instances to Json and Json to Instances'''
@@ -25,15 +25,16 @@ class FileStorage():
         newdic = {}
         for key, value in self.__objects.items():
             newdic[key] = value.to_dict()
-            with open(FileStorage.__file_path, "w") as file:
-                json.dump(newdic, file)
+        with open(self.__file_path, mode="w") as file:
+            json.dump(newdic, file)
 
     def reload(self):
-        ''' deserializes the JSON file to __objects'''
+        """deserializes the JSON file to __objects"""
         try:
-            with open(FileStorage.__file_path) as outfile:
-                fload = json.load(outfile)
-                for key, value in fload.items():
-                    FileStorage.__objects[key] = eval(value["__class__"])(**value)
-        except FileNotFoundError:
-            return
+            with open(self.__file_path, 'r') as burger:
+                beer = json.load(burger)
+            for malta in beer:
+                self.__objects[malta] = atri[beer[malta]["__class__"]](
+                    **beer[malta])
+        except:
+            pass

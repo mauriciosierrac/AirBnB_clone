@@ -21,8 +21,8 @@ class BaseModel():
             self.id = str(uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.engine.new(self)
-            models.engine.save()
+            models.storage.new(self)
+            models.storage.save()
 
     def __str__(self):
         '''print formal representation of Base model isntance'''
@@ -34,6 +34,7 @@ class BaseModel():
     def save(self):
         '''update attribute with datetime'''
         self.updated_at = datetime.now()
+        models.storage.new(self)
         models.storage.save()
 
     def to_dict(self):
