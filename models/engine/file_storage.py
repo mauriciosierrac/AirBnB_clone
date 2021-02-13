@@ -1,8 +1,10 @@
-#!/usr/bin/python3
+#!usr/bin/python3
 '''Define FileStorage class'''
 import json
 from models.base_model import BaseModel
+
 atri = {"BaseModel": BaseModel}
+
 
 class FileStorage():
     '''Serialized instances to Json and Json to Instances'''
@@ -21,20 +23,23 @@ class FileStorage():
                 str(type(obj).__name__), obj.id)] = obj
 
     def save(self):
-        ''' serializes __objects to the JSON file'''
-        newdic = {}
-        for key, value in self.__objects.items():
-            newdic[key] = value.to_dict()
-        with open(self.__file_path, mode="w") as file:
-            json.dump(newdic, file)
+        """serializes __objects to the JSON file (path: __file_path)"""
+        json_ob = {}
+        for key in self.__objects:
+            json_ob[key] = self.__objects[key].to_dict()
+        with open(self.__file_path, 'w') as f:
+            json.dump(json_ob, f)
 
     def reload(self):
-        """deserializes the JSON file to __objects"""
+        """
+        Public instance method to deserialize the JSON file
+        to __objects only if file exists
+        """
         try:
-            with open(self.__file_path, 'r') as burger:
-                beer = json.load(burger)
-            for malta in beer:
-                self.__objects[malta] = atri[beer[malta]["__class__"]](
-                    **beer[malta])
-        except:
+            with open(self.__file_path, encoding="UTF-8") as myfile:
+                obj = json.load(myfile)
+            for key, value in obj.items():
+                name = atri[value["__class__"]](**value)
+                self.__objects[key] = name
+        except FileNotFoundError:
             pass
