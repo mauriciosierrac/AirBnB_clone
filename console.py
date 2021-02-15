@@ -103,10 +103,25 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
         if len(arg) < 4:
             print("** value missing **")
-        
             
-            
-
+        if len(arg) == 4:
+            obj = odic["{}.{}".format(arg[0], arg[1])]
+            if arg[2] in obj.__class__.__dict__.keys():
+                valtype = type(obj.__class__.__dict__[arg[2]])
+                obj.__dict__[arg[2]] = valtype(arg[3])
+            else:
+                obj.__dict__[arg[2]] = arg[3]
+        elif type(eval(arg[2])) == dict:
+            obj = odic["{}.{}".format(arg[0], arg[1])]
+            for key, value in eval(arg[2]).items():
+                if (key in obj.__class__.__dict__.keys() and 
+                    type(obj.__class__.__dict__[key]) in {str, int, float}):
+                    valtype = type(obj.__class__.__dict__[key])
+                    obj.__dict__[key] = valtype(value)
+            else:
+                obj.__dict__[key]
+        storage.save()
+                
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
