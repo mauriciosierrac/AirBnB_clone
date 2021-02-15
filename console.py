@@ -28,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
         arg = line.split()
         if len(line) > 0:
             if line in self.class_list:
-                instance = eval(str(args[0]) + '()')
+                instance = eval(str(arg[0]) + '()')
                 instance.save()
                 print(instance.id)
             else:
