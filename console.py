@@ -5,6 +5,15 @@ import models
 import shlex
 from models.base_model import BaseModel
 from models import storage
+from models.user import User
+from models.city import City
+from models.state import State
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+
+atri = {"BaseModel": BaseModel, "City": City, "State": State,
+        "Amenity": Amenity, "Place": Place, "Review": Review}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -89,41 +98,43 @@ class HBNBCommand(cmd.Cmd):
                     ndic.append(values.__str__())
             print(ndic)
 
-    def do_update(self, line):
-        ''' Updates an instance based on the class
-        name and id by adding or updating attribute '''
-        arg = line.split()
-        odic = storage.all()
-        if len(arg) == 0:
+    def do_update(self, arg):
+        """Update an instance based on the class name, id, attribute & value"""
+        args = shlex.split(arg)
+        integers = ["number_rooms", "number_bathrooms", "max_guest",
+                    "price_by_night"]
+        floats = ["latitude", "longitude"]
+        if len(args) == 0:
             print("** class name missing **")
-        if arg[0] not in self.class_list:
+        elif args[0] in atri:
+            if len(args) > 1:
+                k = args[0] + "." + args[1]
+                if k in models.storage.all():
+                    if len(args) > 2:
+                        if len(args) > 3:
+                            if args[0] == "Place":
+                                if args[2] in integers:
+                                    try:
+                                        args[3] = int(args[3])
+                                    except:
+                                        args[3] = 0
+                                elif args[2] in floats:
+                                    try:
+                                        args[3] = float(args[3])
+                                    except:
+                                        args[3] = 0.0
+                            setattr(models.storage.all()[k], args[2], args[3])
+                            models.storage.all()[k].save()
+                        else:
+                            print("** value missing **")
+                    else:
+                        print("** attribute name missing **")
+                else:
+                    print("** no instance found **")
+            else:
+                print("** instance id missing **")
+        else:
             print("** class doesn't exist **")
-        if len(arg) < 2:
-            print("** instance id missing **")
-        if "{}.{}".format(arg[0], arg[1]) not in odic.keys():
-            print("** no instance found **")
-        if len(arg) < 3:
-            print("** attribute name missing **")
-        if len(arg) < 4:
-            print("** value missing **")
-
-        if len(arg) == 4:
-            obj = odic["{}.{}".format(arg[0], arg[1])]
-            if arg[2] in obj.__class__.__dict__.keys():
-                valtype = type(obj.__class__.__dict__[arg[2]])
-                obj.__dict__[arg[2]] = valtype(arg[3])
-            else:
-                obj.__dict__[arg[2]] = arg[3]
-        elif type(eval(arg[2])) == dict:
-            obj = odic["{}.{}".format(arg[0], arg[1])]
-            for k, value in eval(arg[2]).items():
-                if (k in obj.__class__.__dict__.keys() and
-                        type(obj.__class__.__dict__[k]) in {str, int, float}):
-                    valtype = type(obj.__class__.__dict__[k])
-                    obj.__dict__[k] = valtype(value)
-            else:
-                obj.__dict__[k]
-        storage.save()
 
 
 if __name__ == '__main__':
