@@ -37,7 +37,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, line):
-        '''print the string representation of an instance based on the class name'''
+        '''print the string representation of an
+        instance based on the class name'''
         arg = line.split()
         odic = storage.all()
         if len(arg) == 0:
@@ -73,7 +74,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, line):
-        ''' Prints all string representation of all instances based or not on the class name'''
+        ''' Prints all string representation of all
+        instances based or not on the class name'''
         arg = line.split()
         if len(arg) > 0 and arg[0] not in self.class_list:
             print("** class doesn't exist **")
@@ -86,9 +88,10 @@ class HBNBCommand(cmd.Cmd):
                 elif len(arg) == 0:
                     ndic.append(values.__str__())
             print(ndic)
-            
+
     def do_update(self, line):
-        ''' Updates an instance based on the class name and id by adding or updating attribute '''
+        ''' Updates an instance based on the class
+        name and id by adding or updating attribute '''
         arg = line.split()
         odic = storage.all()
         if len(arg) == 0:
@@ -103,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
         if len(arg) < 4:
             print("** value missing **")
-            
+
         if len(arg) == 4:
             obj = odic["{}.{}".format(arg[0], arg[1])]
             if arg[2] in obj.__class__.__dict__.keys():
@@ -113,15 +116,15 @@ class HBNBCommand(cmd.Cmd):
                 obj.__dict__[arg[2]] = arg[3]
         elif type(eval(arg[2])) == dict:
             obj = odic["{}.{}".format(arg[0], arg[1])]
-            for key, value in eval(arg[2]).items():
-                if (key in obj.__class__.__dict__.keys() and 
-                    type(obj.__class__.__dict__[key]) in {str, int, float}):
-                    valtype = type(obj.__class__.__dict__[key])
-                    obj.__dict__[key] = valtype(value)
+            for k, value in eval(arg[2]).items():
+                if (k in obj.__class__.__dict__.keys() and
+                        type(obj.__class__.__dict__[k]) in {str, int, float}):
+                    valtype = type(obj.__class__.__dict__[k])
+                    obj.__dict__[k] = valtype(value)
             else:
-                obj.__dict__[key]
+                obj.__dict__[k]
         storage.save()
-                
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
