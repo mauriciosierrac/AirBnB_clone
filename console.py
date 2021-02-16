@@ -52,17 +52,18 @@ class HBNBCommand(cmd.Cmd):
         odic = storage.all()
         if len(arg) == 0:
             print("** class name missing **")
+            return
         elif arg[0] not in self.class_list:
             print("** class doesn't exist **")
         elif len(arg) < 2:
             print("** instance id missing **")
         else:
-            odic = storage.all()
-            for key, value in odic.items():
-                if value.id == arg[1] and value.__class__.__name__ == arg[0]:
-                    print(value.__str__())
-                    return
-            print("** no instance found **")
+            key = arg[0] + "." + arg[1]
+            if key in odic:
+                obj = odic[key]
+                print(obj)
+            else:
+                print("** no instance found **")
 
     def do_destroy(self, line):
         '''Deletes an instance based on the class name and id'''
