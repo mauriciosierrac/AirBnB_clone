@@ -9,7 +9,8 @@ from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
 
-atri = {"BaseModel": BaseModel}
+atri = {"BaseModel": BaseModel, "City": City, "State": State,
+        "Amenity": Amenity, "Place": Place, "Review": Review}
 
 
 class FileStorage():
