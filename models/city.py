@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''define class city'''
-from models.base_model import base_model
+from models.base_model import BaseModel
 
 
 class City(BaseModel):
@@ -8,6 +8,6 @@ class City(BaseModel):
     state_id = ""
     name = ""
 
-    def __init__(self. *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         '''constructor method'''
         super().__init__(*args, **kwargs)

@@ -13,15 +13,13 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         '''constructor method'''
 
-        sc = self.created_at
-        su = self.updated_at
         if len(kwargs):
             for key, value in kwargs.items():
                 if key != "__class__":
                     setattr(self, key, value)
-                if hasattr(self, "created_at") and type(sc) is str:
+                if hasattr(self, "created_at") and type(self.created_at) is str:
                     self.created_at = datetime.strptime(value, time)
-                if hasattr(self, "updated_at") and type(su) is str:
+                if hasattr(self, "updated_at") and type(self.updated_at) is str:
                     self.updated_at = datetime.strptime(value, time)
         else:
             self.id = str(uuid.uuid4())
