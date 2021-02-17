@@ -30,25 +30,26 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        pass
+        return False
 
     def do_create(self, line):
         """Create new instance"""
-        arg = line.split()
-        if len(line) > 0:
-            if line in self.class_list:
-                instance = eval(str(arg[0]) + '()')
-                instance.save()
-                print(instance.id)
-            else:
-                print("** class name missing **")
+        arg = shlex.split(line)
+        if len(arg) == 0:
+            print("** class name missing **")
+            return False
+        if arg[0] in atri:
+            instance = atri[arg[0]]()
         else:
             print("** class doesn't exist **")
+            return False
+    print(instance.id)
+    instance.save()
 
     def do_show(self, line):
         '''print the string representation of an
         instance based on the class name'''
-        arg = line.split()
+        arg = shlex.split(line)
         odic = storage.all()
         if len(arg) == 0:
             print("** class name missing **")
@@ -67,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, line):
         '''Deletes an instance based on the class name and id'''
-        arg = line.split()
+        arg = shlex.split(line)
         if len(arg) == 0:
             print("** class name missing **")
         elif arg[0] not in self.class_list:
@@ -86,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, line):
         ''' Prints all string representation of all
         instances based or not on the class name'''
-        arg = line.split()
+        arg = shlex.split(line)
         if len(arg) > 0 and arg[0] not in self.class_list:
             print("** class doesn't exist **")
         else:
