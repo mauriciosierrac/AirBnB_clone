@@ -10,8 +10,7 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
-    
-    
+
     def __init__(self, *args, **kwargs):
         '''constructor method'''
         super().__init__(*args, **kwargs)
