@@ -43,8 +43,8 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
             return False
-    print(instance.id)
-    instance.save()
+        print(instance.id)
+        instance.save()
 
     def do_show(self, line):
         '''print the string representation of an
