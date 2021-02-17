@@ -6,7 +6,8 @@ import pep8
 from datetime import datetime
 from models.user import User
 from models.base_model import BaseModel
-User = user.User
+import inspect
+User = User
 
 
 class TestUserDocs(unittest.TestCase):
@@ -32,9 +33,9 @@ class TestUserDocs(unittest.TestCase):
 
     def test_user_module_docstring(self):
         """Test for the user.py module docstring"""
-        self.assertIsNot(user.__doc__, None,
+        self.assertIsNot(User.__doc__, None,
                          "user.py needs a docstring")
-        self.assertTrue(len(user.__doc__) >= 1,
+        self.assertTrue(len(User.__doc__) >= 1,
                         "user.py needs a docstring")
 
     def test_user_class_docstring(self):

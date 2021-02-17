@@ -5,7 +5,7 @@ for amenity
 import unittest
 import os
 import pep8
-from models.amenity import amenity
+from models.amenity import Amenity
 from models.base_model import BaseModel
 
 
@@ -19,9 +19,9 @@ class TestAmenity(unittest.TestCase):
     def tearDownClass(cls):
         del cls.am
         try:
-            am.remove("file.json")
-        except FileNotFoundError
-        pass
+            os.remove("file.json")
+        except FileNotFoundError:
+            pass
 
     def test_style_check(self):
         """
