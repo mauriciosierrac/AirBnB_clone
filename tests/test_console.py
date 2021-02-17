@@ -8,6 +8,10 @@ import pep8
 import os
 import json
 import console
+from models import storage
+from models.engine.file_storage import FileStorage
+from console import HBNBCommand
+
 HBNBCommand = console.HBNBCommand
 
 
