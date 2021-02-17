@@ -19,7 +19,6 @@ class TestBaseModelDocs(unittest.TestCase):
         """Set up for docstring tests"""
         self.base_funcs = inspect.getmembers(BaseModel, inspect.isfunction)
 
-
     def test_module_docstring(self):
         """Test for the existence of module docstring"""
         self.assertIsNot(module_doc, None,
@@ -31,7 +30,7 @@ class TestBaseModelDocs(unittest.TestCase):
         """Test for the BaseModel class docstring"""
         self.assertIsNot(BaseModel.__doc__, None,
                          "BaseModel class needs a docstring")
-        self.assertTrue(len(BaseModel.__doc__) >= 1,
+        self.assertTrue(len(BaseModel.__doc__) >= 1,\
                         "BaseModel class needs a docstring")
 
     def test_func_docstrings(self):
@@ -72,7 +71,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(mock_storage.new.called)
         self.assertEqual(inst.name, "Holberton")
         self.assertEqual(inst.number, 89)
-
 
     def test_uuid(self):
         """Test that id is a valid uuid"""
