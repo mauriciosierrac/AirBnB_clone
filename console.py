@@ -18,7 +18,7 @@ atri = {"BaseModel": BaseModel, "User": User, "City": City, "State": State,
 
 class HBNBCommand(cmd.Cmd):
     """class console command"""
-    prompt = "(hbnb) "
+    prompt = "(hbnb)"
     class_list = {"BaseModel"}
 
     def do_quit(self, args):
