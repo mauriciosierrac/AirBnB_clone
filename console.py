@@ -88,17 +88,22 @@ class HBNBCommand(cmd.Cmd):
         ''' Prints all string representation of all
         instances based or not on the class name'''
         arg = shlex.split(line)
-        if len(arg) > 0 and arg[0] not in self.class_list:
-            print("** class doesn't exist **")
+        odic = []
+        if len(arg) == 0:
+            for value in models.storage.all().values():
+                odic.append(str(value))
+            print("[", end="")
+            print(", ".join(odic), end="")
+            print("]")
+        elif odic[0] in atri:
+            for k in models.storage.all():
+                if arg[0] in k:
+                    odic.append(str(models.storage.all()[k]))
+            print("[", end="")
+            print(", ".join(odic), end="")
+            print("]")
         else:
-            ndic = []
-            odic = storage.all()
-            for values in odic.values():
-                if len(arg) > 0 and arg[0] == values.__class__.__name__:
-                    ndic.append(values.__str__())
-                elif len(arg) == 0:
-                    ndic.append(values.__str__())
-            print(ndic)
+            print("** class doesn't exist **")
 
     def do_update(self, arg):
         """Update an instance based on the class name, id, attribute & value"""
