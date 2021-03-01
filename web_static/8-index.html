@@ -1,165 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AirBnb Clone</title>
-	<link rel="stylesheet" href="styles/4-common.css" />
-	<link rel="stylesheet" href="styles/3-footer.css" />
-	<link rel="stylesheet" href="styles/3-header.css" />
-	<link rel="stylesheet" href="styles/6-filters.css" />
-	<link rel="stylesheet" href="styles/8-places.css">
-	<link rel="icon" href="images/icon.png" type="image/png" />
-</head>
-<body>
-	<header>
-		<div class="logo"></div>
-	</header>
-	<div class="container">
-		<section class="filters">
-			<div class="locations">
-				<h3>States</h3>
-				<h4>Colombia, Cali...</h4>
-				<ul class="popover">
-					<li>
-						<h2>Cali</h2>
-						<ul>
-							<li>Dog park</li>
-							<li>Cat park</li>
-						</ul>
-					</li>
-					<li>
-						<h2>Medellin</h2>
-						<ul>
-							<li>Pueblito paisa</li>
-							<li>Metro</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			<div class="amenities">
-				<h3>Amenities</h3>
-				<h4>Food, Dance...</h4>
-				<ul class="popover">
-					<li>
-						<h2>Food</h2>
-						<ul>
-							<li>Changua</li>
-							<li>Coffe</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			<button>Search</button>
-		</section>
-		<section class="places">
-			<h1>Places</h1>
-			<article>
-				<h2>My home</h2>
-				<div class="price_by_night">
-					<p>$80</p>
-				</div>
-				<div class="information">
-					<div class="max_guest">
-						<div class="g_image"></div>
-						<p>2 Guest</p>
-					</div>
-					<div class="number_rooms">
-						<div class="b_image"></div>
-						<p>1 Bedroom</p>
-					</div>
-					<div class="number_bathrooms">
-						<div class="bath_image"></div>
-						<p>1 Bathroom</p>
-					</div>
-				</div>
-				<div class="user">
-					<p><b>Owner: </b>Frank</p>
-				</div>
-				<div class="description">
-					<p>
-					Morbi quis sapien nec risus ornare gravida. Sed a felis id dui ornare sagittis.
-					Maecenas tincidunt erat eu est consequat maximus.
-					Vestibulum in ex non tortor venenatis tristique at a libero.
-					Maecenas congue diam vitae mollis varius. Integer lectus urna,
-					gravida eu ante sit amet, sagittis maximus massa.
-					Duis vel elementum mi. Phasellus mattis laoreet congue.
-					Maecenas elementum aliquam arcu sit amet hendrerit. 
-					</p>
-				</div>
-			</article>
-			<article>
-				<h2>Tiny house</h2>
-				<div class="price_by_night">
-					<p>$65</p>
-				</div>
-				<div class="information">
-					<div class="max_guest">
-						<div class="g_image"></div>
-						<p>4 Guest</p>
-					</div>
-					<div class="number_rooms">
-						<div class="b_image"></div>
-						<p>2 Bedroom</p>
-					</div>
-					<div class="number_bathrooms">
-						<div class="bath_image"></div>
-						<p>1 Bathroom</p>
-					</div>
-				</div>
-				<div class="user">
-					<p><b>Owner: </b>Andrew</p>
-				</div>
-				<div class="description">
-					<p>
-					Morbi quis sapien nec risus ornare gravida. Sed a felis id dui ornare sagittis.
-					Maecenas tincidunt erat eu est consequat maximus.
-					Vestibulum in ex non tortor venenatis tristique at a libero.
-					Maecenas congue diam vitae mollis varius. Integer lectus urna,
-					gravida eu ante sit amet, sagittis maximus massa.
-					Duis vel elementum mi. Phasellus mattis laoreet congue.
-					Maecenas elementum aliquam arcu sit amet hendrerit. 
-					</p>
-				</div>
-			</article>
-			<article>
-				<h2>A suite</h2>
-				<div class="price_by_night">
-					<p>$180</p>
-				</div>
-				<div class="information">
-					<div class="max_guest">
-						<div class="g_image"></div>
-						<p>8 Guest</p>
-					</div>
-					<div class="number_rooms">
-						<div class="b_image"></div>
-						<p>6 Bedroom</p>
-					</div>
-					<div class="number_bathrooms">
-						<div class="bath_image"></div>
-						<p>3 Bathroom</p>
-					</div>
-				</div>
-				<div class="user">
-					<p><b>Owner: </b>Bill</p>
-				</div>
-				<div class="description">
-					<p>
-					Morbi quis sapien nec risus ornare gravida. Sed a felis id dui ornare sagittis.
-					Maecenas tincidunt erat eu est consequat maximus.
-					Vestibulum in ex non tortor venenatis tristique at a libero.
-					Maecenas congue diam vitae mollis varius. Integer lectus urna,
-					gravida eu ante sit amet, sagittis maximus massa.
-					Duis vel elementum mi. Phasellus mattis laoreet congue.
-					Maecenas elementum aliquam arcu sit amet hendrerit. 
-					</p>
-				</div>
-			</article>
-		</section>
-	</div>
-	<footer>
-		<p>Holberton School</p>
-	</footer>
-</body>
+  <head>
+    <title>AirBnB clone</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="styles/4-common.css" rel="stylesheet " type="text/css" />
+    <link href="styles/3-header.css" rel="stylesheet" type="text/css" />
+    <link href="styles/3-footer.css" rel="stylesheet" type="text/css" />
+    <link href="styles/6-filters.css" rel="stylesheet" type="text/css" />
+    <link href="styles/8-places.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="images/icon.png" />
+  </head>
+  <body>
+    <header></header>
+    <div class="container">
+      <section class="filters">
+        <div class="locations">
+          <h3 class="tittles">States</h3>
+          <h4 class="subtittles">California, Arizona...</h4>
+          <div class="popover">
+            <div class="popover-content">
+              <ul class="list">
+                <li><h2 class="state">Arizona:</h2></li>
+                <li>Page</li>
+                <li>Page2</li>
+              </ul>
+              <ul class="list">
+                <li><h2 class="state">California:</h2></li>
+                <li>San Francisco</li>
+                <li>Los Altos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="amenities">
+          <h3 class="tittles">Amenities</h3>
+          <h4 class="subtittles">Internet, Kitchen...</h4>
+          <div class="popover">
+            <div class="popover-content">
+              <ul class="list">
+                <li>Internet</li>
+                <li>Tv</li>
+                <li>Kitchen</li>
+                <li>Iron</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <button>Search</button>
+      </section>
+
+      <section class="places">
+        <h1>Places</h1>
+        <article>
+          <h2 class="tittle_places">My home</h2>
+          <div class="price_by_night">
+            <p>$80</p>
+          </div>
+          <div class="information">
+            <div class="max_guest">
+              <p>2 Guest</p>
+            </div>
+            <div class="number_rooms">
+              <p>2 Bedrooms</p>
+            </div>
+            <div class="number_bathrooms">
+              <p>1 Bathrooms</p>
+            </div>
+          </div>
+          <div class="owner">
+            <p><b>Owner:</b> John Lennon</p>
+          </div>
+          <div class="description">
+            <p>
+              This is a lovely 1 bedroom and 1 bathroom apartment that
+              accommodate 2 people, it locales at the center of Sangai and next
+              to subway line 1, stop the People Square, 2 stops to bund, 3 stops
+              to Jingan Temple
+            </p>
+          </div>
+        </article>
+        <article>
+          <h2 class="tittle_places">Tiny house</h2>
+          <div class="price_by_night">
+            <p>$65</p>
+          </div>
+          <div class="information">
+            <div class="max_guest">
+              <p>4 Guest</p>
+            </div>
+            <div class="number_rooms">
+              <p>2 Bedrooms</p>
+            </div>
+            <div class="number_bathrooms">
+              <p>1 Bathrooms</p>
+            </div>
+          </div>
+          <div class="owner">
+            <p><b>Owner: </b> Adrienne</p>
+          </div>
+          <div class="description">
+            <p>
+              Our place is a private, affortable stand-alones guest house
+              centrally located, just minutes to French Quartes, downtown, the
+              Fair Grounds (Jazz Fest), and City Park. The guest house is a
+              quaint, 400 square ft. with a full bath, mini Kitchen & liveng
+              room, the extra high cellings make the home feel more spacious,
+              the sofa converts to a bed also, we have a hand made counter area
+              that adds character to the room and great porch/deck to relaz on
+              and have a glass of Merlot.
+            </p>
+          </div>
+        </article>
+        <article>
+          <h2 class="tittle_places">A suite</h2>
+          <div class="price_by_night">
+            <p>$99</p>
+          </div>
+          <div class="information">
+            <div class="max_guest">
+              <p>3 Guest</p>
+            </div>
+            <div class="number_rooms">
+              <p>3 Bedrooms</p>
+            </div>
+            <div class="number_bathrooms">
+              <p>2 Bathrooms</p>
+            </div>
+          </div>
+          <div class="owner">
+            <p><b>Owner: </b> Maurice</p>
+          </div>
+          <div class="description">
+            <p>
+              Suites with 38 m2 to 43 m2. Large room with a Queen or King size
+              bed, equipped with a careful delicacy. Elegant and luxurious
+              decoration with rich fabrics. Separate living room with sofa and
+              armchairs. Most of the suites have a terrace and wonderful views
+              of the hotel gardens and Estoril (the upper floors have views of
+              the sea). Marble bathroom; some with separate bathtub and shower
+            </p>
+          </div>
+        </article>
+      </section>
+    </div>
+    <footer>
+      <p>Holberton School</p>
+    </footer>
+  </body>
 </html>
